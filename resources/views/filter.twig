@@ -1,0 +1,11 @@
+{# {{ field_type.input_name }} | Date of the response #}
+{# https://developers.google.com/recaptcha/docs/invisible #}
+
+<input
+        value="{{ field_type.value }}"
+        name="{{ field_type.getInputName() }}"
+        class="form-control {{ field_type.class }}"
+        type="text"
+        placeholder="{{ trans(field_type.placeholder) }}"
+        {{ field_type.disabled ? 'disabled' }}
+        {{ field_type.readonly ? 'readonly' }}>

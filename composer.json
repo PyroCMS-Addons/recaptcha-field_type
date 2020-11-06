@@ -1,0 +1,12 @@
+{
+    "name": "thrive/recaptcha-field_type",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Thrive\\RecaptchaFieldType\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "~7.0.0"
+    }    
+}

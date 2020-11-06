@@ -1,0 +1,6 @@
+<div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"></div>
+
+{% if field_type.readonly %}
+    <input type="hidden" name="" value="recapatcha_value_{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}">
+    Completed: {{ field_type.value|raw }}
+{% endif %}
