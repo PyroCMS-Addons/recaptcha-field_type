@@ -16,7 +16,7 @@ class ValidRecaptcha
      */
     public function handle($value)
     {
-        //Log::info('Validating reCAPTCHA Form');
+        Log::info('Validating reCAPTCHA Form');
 
         if(isset($_POST['g-recaptcha-response'])){
             $captcha=$_POST['g-recaptcha-response'];
@@ -40,6 +40,8 @@ class ValidRecaptcha
                 'remoteip' => \Request::ip()
             ]
         ]);
+
+        dd( json_decode($response->getBody()) );
 
         if(json_decode($response->getBody())->success)
         {

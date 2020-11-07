@@ -1,0 +1,19 @@
+<h2>Version 3</h2>
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+function google_onSubmit(token) {
+    document.getElementById("demo-form").submit();
+}
+</script>
+
+<button class="g-recaptcha" 
+        data-badge="{{ field_type.position }}" 
+        data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}" 
+        data-callback='google_onSubmit' 
+        data-action='submit'>Submit</button>
+
+
+{% if field_type.readonly %}
+    Completed: {{ field_type.value|raw }}
+{% endif %}

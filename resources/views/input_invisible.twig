@@ -1,0 +1,21 @@
+{# 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+function google_onSubmit(token) {
+    document.getElementById("demo-form").submit();
+}
+</script> #}
+
+
+        <button 
+            class="g-recaptcha" 
+            data-badge="{{ field_type.position }}" 
+            data-size="invisible"
+            data-callback='google_onSubmit'>
+            Submit
+        </button>
+
+
+{% if field_type.readonly %}
+    Completed: {{ field_type.value|raw }}
+{% endif %}

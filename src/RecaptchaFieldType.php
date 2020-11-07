@@ -8,13 +8,14 @@ class RecaptchaFieldType extends FieldType
     
     protected $columnType = 'text';
 
-
+    //validrecaptcha
     protected $rules = [
-        'myrecaptcha'
+        ''
     ];
 
+    //validrecaptcha
     protected $validators = [
-        'myrecaptcha' => [
+        '' => [
             'message' => 'thrive.field_type.recaptcha::message.not_human',
             'handler' => ValidRecaptcha::class
         ]
@@ -29,7 +30,7 @@ class RecaptchaFieldType extends FieldType
      *
      * @var string
      */
-    protected $inputView = 'thrive.field_type.recaptcha::input';
+    protected $inputView = NULL;
 
     /**
      * The filter view.
@@ -37,5 +38,30 @@ class RecaptchaFieldType extends FieldType
      * @var string
      */
     protected $filterView = 'thrive.field_type.recaptcha::filter';    
+
+
+    public function getInputView()
+    {
+        if ($view = parent::getInputView()) {
+            return $view;
+        }
+
+        return 'thrive.field_type.recaptcha::input_' . $this->mode();
+    }
+
+    /**
+     * Return the input mode.
+     *
+     * @return string
+     */
+    public function mode()
+    {
+        return $this->config('mode') ?: config('thrive.field_type.recaptcha::mode', 'invisible');
+    }    
+
+    public function position()
+    {
+        return $this->config('position') ?: config('thrive.field_type.recaptcha::position', 'inline');
+    }
 
 }
