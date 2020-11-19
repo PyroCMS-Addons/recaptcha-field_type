@@ -1,8 +1,16 @@
 
-<div class="g-recaptcha" 
-    data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"></div>
-
 
 {% if field_type.readonly %}
     Completed: {{ field_type.value|raw }}
+{% else %}
+
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+        <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"></div>
+
+        <input
+                type="hidden"
+                name="{{ field_type.input_name }}"
+                value="pre_validation">
+
 {% endif %}

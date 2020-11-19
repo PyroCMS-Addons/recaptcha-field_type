@@ -2,6 +2,7 @@
 
 use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeModifier;
 use Carbon\Carbon;
+use Thrive\RecaptchaFieldType\RecaptchaFieldType;
 
 /**
  *
@@ -9,6 +10,28 @@ use Carbon\Carbon;
 class RecaptchaFieldTypeModifier extends FieldTypeModifier
 {
 
+    /**
+     * The datetime field type.
+     * This is for IDE hinting.
+     *
+     * @var DatetimeFieldType
+     */
+    protected $fieldType;
+
+
+    
+    /**
+     * Create a new DatetimeFieldTypeModifier instance.
+     *
+     * @param RecaptchaFieldType $fieldType
+     */
+    public function __construct(RecaptchaFieldType $fieldType)
+    {
+        $this->fieldType = $fieldType;
+    }
+
+
+    
     /**
      * Modify the value.
      *
@@ -18,9 +41,9 @@ class RecaptchaFieldTypeModifier extends FieldTypeModifier
     public function modify($value)
     {
         $value = '<code>' . \Request::ip() . '</code> | <small>' . Carbon::now() .'</small>';
-        if ($value && !$this->validate($value)) {
-            $value = NULL;
-        }
+        // if ($value && !$this->validate($value)) {
+        //     $value = NULL;
+        // }
 
         return parent::modify($value);
     }
@@ -33,10 +56,6 @@ class RecaptchaFieldTypeModifier extends FieldTypeModifier
      */
     public function restore($value)
     {
-        if ($value && !$this->validate($value)) {
-            $value = null;
-        }
-
         return parent::restore($value);
     }
 
@@ -48,8 +67,8 @@ class RecaptchaFieldTypeModifier extends FieldTypeModifier
      * @param $value
      * @return bool
      */
-    protected function validate($value)
-    {
-        return true;
-    }
+    // protected function validate($value)
+    // {
+    //     return true;
+    // }
 }

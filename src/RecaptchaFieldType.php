@@ -8,36 +8,31 @@ class RecaptchaFieldType extends FieldType
     
     protected $columnType = 'text';
 
-    //validrecaptcha
     protected $rules = [
-        ''
+        'recaptcha'
     ];
 
-    //validrecaptcha
     protected $validators = [
-        '' => [
-            'message' => 'thrive.field_type.recaptcha::message.not_human',
-            'handler' => ValidRecaptcha::class
+        'recaptcha' => [
+            'handler' => ValidRecaptcha::class,
+            'message' => 'thrive.field_type.recaptcha::message.not_human'
         ]
     ];
     
     /**
      * The input view.
-     * The input view will actually be a button.
-     * 
-     * For forms using this field-type, override the form view so you dont display the
-     * submit button as it is shown here.
      *
      * @var string
      */
     protected $inputView = NULL;
+
 
     /**
      * The filter view.
      *
      * @var string
      */
-    protected $filterView = 'thrive.field_type.recaptcha::filter';    
+    protected $filterView = NULL;    
 
 
     public function getInputView()
@@ -59,9 +54,26 @@ class RecaptchaFieldType extends FieldType
         return $this->config('mode') ?: config('thrive.field_type.recaptcha::mode', 'invisible');
     }    
 
+
     public function position()
     {
         return $this->config('position') ?: config('thrive.field_type.recaptcha::position', 'inline');
     }
+
+
+    public function getPlaceholder()
+    {
+        $placeholder = parent::getPlaceholder();
+
+        if ($placeholder === false) {
+            return null;
+        }
+
+        if ($placeholder === null) {
+            return null;
+        }
+
+        return $placeholder;
+    }    
 
 }

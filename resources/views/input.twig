@@ -1,8 +1,0 @@
-<div class="g-recaptcha" 
-        data-size="invisible"
-        data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"></div>
-
-
-{% if field_type.readonly %}
-    Completed: {{ field_type.value|raw }}
-{% endif %}
