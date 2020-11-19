@@ -1,4 +1,4 @@
-{# 
+{#
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
 function google_onSubmit(token) {
@@ -6,9 +6,9 @@ function google_onSubmit(token) {
 }
 </script> #}
 
-        <button 
-            class="g-recaptcha" 
-            data-badge="{{ field_type.position }}" 
+        <button
+            class="g-recaptcha"
+            data-badge="{{ field_type.position }}"
             data-size="invisible"
             data-callback='google_onSubmit'>
             Submit

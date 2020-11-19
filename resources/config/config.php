@@ -13,7 +13,7 @@ return [
                 'checkbox'  => 'thrive.field_type.recaptcha::config.mode.checkbox',
             ],
         ],
-    ],  
+    ],
     'position'        => [
         'type'     => 'anomaly.field_type.select',
         'required' => true,
@@ -23,7 +23,7 @@ return [
                 'inline' => 'thrive.field_type.recaptcha::config.position.inline',
             ],
         ],
-    ],       
+    ],
 ];
 
 //'bottomleft' => 'thrive.field_type.recaptcha::config.position.bottomleft',

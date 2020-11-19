@@ -12,8 +12,8 @@ return [
         'invisible'    => 'Invisible',
         'checkbox'     => 'Checkbox',
         'version_3'    => 'Version 3',
-        
-    ],  
+
+    ],
     'position'        => [
         'name'         => 'Badge Position',
         'label'        => 'Badge Position',
@@ -21,7 +21,5 @@ return [
         'inline'       => 'Inline',
         'bottomleft'   => 'Bottom Left',
         'bottomright'  => 'Bottom Right',
-    ],      
+    ],
 ];
-
-

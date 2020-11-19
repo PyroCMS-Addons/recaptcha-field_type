@@ -19,7 +19,7 @@ class RecaptchaFieldTypeModifier extends FieldTypeModifier
     protected $fieldType;
 
 
-    
+
     /**
      * Create a new DatetimeFieldTypeModifier instance.
      *
@@ -31,7 +31,7 @@ class RecaptchaFieldTypeModifier extends FieldTypeModifier
     }
 
 
-    
+
     /**
      * Modify the value.
      *
@@ -63,7 +63,7 @@ class RecaptchaFieldTypeModifier extends FieldTypeModifier
      * Validate the reCAPTCHA
      *
      * returns true if passes.
-     * 
+     *
      * @param $value
      * @return bool
      */

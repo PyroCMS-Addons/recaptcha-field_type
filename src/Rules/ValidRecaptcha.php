@@ -34,19 +34,19 @@ class ValidRecaptcha
         }
 
         //
-        // POST MUST contain 'g-recaptcha-response'   
+        // POST MUST contain 'g-recaptcha-response'
         //
         if(!isset($_POST['g-recaptcha-response'])){
             return false;
         }
-   
+
         //
-        // Google reCAPTCHA is present but not 
+        // Google reCAPTCHA is present but not
         // selected by user.
         //
         if (empty($_POST['g-recaptcha-response'])) {
             return false;
-        }        
+        }
 
         // Log::info('Validating reCAPTCHA Form :: Passed Pre-Validation');
 
@@ -57,9 +57,9 @@ class ValidRecaptcha
 
 
         Log::error('reCAPTCHA Token ' . $captcha);
-        
 
-        
+
+
         // Validate ReCaptcha
         $client = new Client([
             'base_uri' => 'https://google.com/recaptcha/api/'

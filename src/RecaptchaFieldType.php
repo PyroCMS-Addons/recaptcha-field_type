@@ -5,7 +5,7 @@ use Thrive\RecaptchaFieldType\Rules\ValidRecaptcha;
 
 class RecaptchaFieldType extends FieldType
 {
-    
+
     protected $columnType = 'text';
 
     protected $rules = [
@@ -18,7 +18,7 @@ class RecaptchaFieldType extends FieldType
             'message' => 'thrive.field_type.recaptcha::message.not_human'
         ]
     ];
-    
+
     /**
      * The input view.
      *
@@ -32,7 +32,7 @@ class RecaptchaFieldType extends FieldType
      *
      * @var string
      */
-    protected $filterView = NULL;    
+    protected $filterView = NULL;
 
 
     public function getInputView()
@@ -52,7 +52,7 @@ class RecaptchaFieldType extends FieldType
     public function mode()
     {
         return $this->config('mode') ?: config('thrive.field_type.recaptcha::mode', 'invisible');
-    }    
+    }
 
 
     public function position()
@@ -74,6 +74,6 @@ class RecaptchaFieldType extends FieldType
         }
 
         return $placeholder;
-    }    
+    }
 
 }
